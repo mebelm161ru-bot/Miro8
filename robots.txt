@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mebelm161ru-bot.github.io/miro8-site/sitemap.xml
+Sitemap: https://mebelm161ru-bot.github.io/Miro8/sitemap.xml

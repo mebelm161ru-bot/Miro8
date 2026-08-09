@@ -6,7 +6,7 @@ Deploy-ready статический сайт без сборщика и внеш
 
 - GitHub: https://github.com/mebelm161ru-bot
 - Планируемый репозиторий: `miro8-site`
-- Первый адрес GitHub Pages: https://mebelm161ru-bot.github.io/miro8-site/
+- Первый адрес GitHub Pages: https://mebelm161ru-bot.github.io/Miro8/
 - Будущий основной домен: https://miro8.ru/
 - BandLink: https://band.link/ni0i1
 - VK: https://vk.ru/miro8_music
@@ -25,7 +25,7 @@ python -m http.server 8000
 
 ## GitHub Pages
 
-Загрузите всё содержимое этой папки в корень публичного репозитория `miro8-site`.
+Загрузите всё содержимое этой папки в корень публичного репозитория `Miro8`.
 
 **Settings → Pages → Deploy from a branch → main / root.**
 
@@ -41,4 +41,4 @@ python -m http.server 8000
 
 После публикации создайте счётчик Яндекс Метрики и добавьте его номер в `yandex-metrika-snippet.template.html` вместо `XXXXXXXX`.
 
-Подробности: `00_ВАШИ_ДАННЫЕ_И_СЛЕДУЮЩИЕ_ШАГИ.docx` и `ЗАПУСК_САЙТА_GITHUB_И_VERCEL.docx`.
+Главная и единственная инструкция: `00_ЕДИНСТВЕННАЯ_ИНСТРУКЦИЯ_ДЛЯ_НОВИЧКА.docx`.
