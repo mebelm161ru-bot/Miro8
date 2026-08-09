@@ -118,14 +118,15 @@
     /* Tracks */
     .tracks-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:44px}
     .track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .track{position:relative;min-height:360px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#0a171d;cursor:pointer;isolation:isolate;transition:transform .3s ease,border .3s ease,box-shadow .3s ease}
+    .track{position:relative;min-height:0;aspect-ratio:1/1;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#0a171d;cursor:pointer;isolation:isolate;transition:transform .3s ease,border .3s ease,box-shadow .3s ease}
     .track:hover{transform:translateY(-8px);border-color:rgba(74,223,238,.6);box-shadow:0 22px 50px rgba(0,0,0,.38),0 0 34px rgba(52,217,235,.12)}
-    .track img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:scale .5s ease}.track:hover img{scale:1.06}
-    .track::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(3,10,13,.45) 52%,rgba(3,9,12,.98) 92%);z-index:-1}
-    .track-no{position:absolute;top:16px;left:16px;font:900 12px ui-monospace,monospace;letter-spacing:.12em;color:var(--orange)}
-    .play-dot{position:absolute;right:16px;top:16px;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:rgba(3,13,17,.7);border:1px solid rgba(94,231,243,.32);backdrop-filter:blur(8px);transition:.25s}.track:hover .play-dot{background:var(--cyan);color:#001217;transform:scale(1.08)}
-    .track-info{position:absolute;left:18px;right:18px;bottom:18px}.track h3{font-size:19px;line-height:1.05;margin:0 0 10px}.track p{font-size:13px;line-height:1.4;color:#9eb1b8;margin:0}
-    .track.featured{grid-column:span 2}.track.featured h3{font-size:28px}
+    .track:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+    .track img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#060d11;z-index:-2;transition:scale .5s ease}.track:hover img{scale:1.025}
+    .track::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 72%,rgba(3,9,12,.16));z-index:-1;pointer-events:none}
+    .track-no{display:none}
+    .play-dot{position:absolute;right:16px;bottom:16px;top:auto;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:rgba(3,13,17,.78);border:1px solid rgba(94,231,243,.42);backdrop-filter:blur(8px);transition:.25s;box-shadow:0 8px 24px rgba(0,0,0,.35)}.track:hover .play-dot{background:var(--cyan);color:#001217;transform:scale(1.08)}
+    .track-info{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .track.featured{grid-column:auto}
 
     /* Diagnostic */
     .diagnostic{border:1px solid rgba(88,228,240,.24);border-radius:34px;background:linear-gradient(135deg,rgba(12,35,44,.96),rgba(9,19,25,.96));padding:clamp(28px,6vw,74px);box-shadow:var(--shadow);position:relative;overflow:hidden}
@@ -164,7 +165,7 @@
     }
     @media(max-width:760px){
       .detail-card{grid-template-columns:1fr}.detail-card img{max-height:280px;object-fit:contain}.detail-copy h3{font-size:27px}
-      .container{width:min(100% - 28px,1200px)}.section{padding:82px 0}.nav-links{position:fixed;left:14px;right:14px;top:76px;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:16px;background:rgba(5,15,20,.96);border:1px solid var(--line);border-radius:20px;transform:translateY(-20px);opacity:0;visibility:hidden;transition:.25s}.nav-links.open{transform:none;opacity:1;visibility:visible}.nav-links a{padding:15px}.menu-btn{display:block}.hero h1{font-size:clamp(68px,25vw,112px)}.hero-copy{font-size:20px}.hero-art{display:none}.scroll-cue{display:none}.stats{grid-template-columns:1fr}.track-grid{grid-template-columns:1fr}.track.featured{grid-column:auto}.track{min-height:430px}.tracks-head{display:block}.diagnostic{padding:25px}.diag-result{padding:25px}.clip-poster{min-height:460px}.section-title{font-size:46px}.footer-row{display:block}.footer-links{margin-top:20px}.marquee span{font-size:15px}
+      .container{width:min(100% - 28px,1200px)}.section{padding:82px 0}.nav-links{position:fixed;left:14px;right:14px;top:76px;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:16px;background:rgba(5,15,20,.96);border:1px solid var(--line);border-radius:20px;transform:translateY(-20px);opacity:0;visibility:hidden;transition:.25s}.nav-links.open{transform:none;opacity:1;visibility:visible}.nav-links a{padding:15px}.menu-btn{display:block}.hero h1{font-size:clamp(68px,25vw,112px)}.hero-copy{font-size:20px}.hero-art{display:none}.scroll-cue{display:none}.stats{grid-template-columns:1fr}.track-grid{grid-template-columns:1fr}.track.featured{grid-column:auto}.track{min-height:0;aspect-ratio:1/1}.tracks-head{display:block}.diagnostic{padding:25px}.diag-result{padding:25px}.clip-poster{min-height:460px}.section-title{font-size:46px}.footer-row{display:block}.footer-links{margin-top:20px}.marquee span{font-size:15px}
     }
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.loader{display:none}}
   </style>
@@ -310,7 +311,7 @@
       ['13','НЕ СНИМАЙ ЭТОТ МОМЕНТ','Файл не создан. Жизнь сохранена.','assets/images/tracks/13.jpg','assets/video/moment-10s.mp4']
     ];
     const grid=document.getElementById('trackGrid');
-    tracks.forEach((t,i)=>{const card=document.createElement('article');card.className='track reveal'+(i===1?' featured':'');card.dataset.index=i;card.innerHTML=`<img loading="lazy" src="${t[3]}" alt="${t[1]}"><span class="track-no">MIRO-8 / ${t[0]}</span><span class="play-dot">${t[4]?'▶':'+'}</span><div class="track-info"><h3>${t[1]}</h3><p>${t[2]}</p></div>`;grid.appendChild(card)});
+    tracks.forEach((t,i)=>{const card=document.createElement('article');card.className='track reveal';card.dataset.index=i;card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',t[1]+' — открыть трек');card.innerHTML=`<img loading="lazy" src="${t[3]}" alt="${t[1]}"><span class="track-no">MIRO-8 / ${t[0]}</span><span class="play-dot">${t[4]?'▶':'+'}</span><div class="track-info"><h3>${t[1]}</h3><p>${t[2]}</p></div>`;grid.appendChild(card)});
 
     const modal=document.getElementById('videoModal'),video=document.getElementById('modalVideo'),modalTitle=document.getElementById('modalTitle');
     function openVideo(src,title){video.src=src;modalTitle.textContent=title;modal.classList.add('open');document.body.style.overflow='hidden';video.play().catch(()=>{})}
@@ -318,7 +319,7 @@
     const trackModal=document.getElementById('trackModal');
     function openTrack(t){if(t[4]){openVideo(t[4],t[1]);return}document.getElementById('trackModalImg').src=t[3];document.getElementById('trackModalImg').alt='Обложка трека '+t[1];document.getElementById('trackModalTitle').textContent=t[1];document.getElementById('trackModalHook').textContent=t[2]+' Полный трек доступен на BandLink и в VK Музыке.';trackModal.classList.add('open');document.body.style.overflow='hidden'}
     function closeTrack(){trackModal.classList.remove('open');document.body.style.overflow=''}
-    grid.addEventListener('click',e=>{const card=e.target.closest('.track');if(card)openTrack(tracks[+card.dataset.index])});
+    grid.addEventListener('click',e=>{const card=e.target.closest('.track');if(card)openTrack(tracks[+card.dataset.index])});grid.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.track')){e.preventDefault();openTrack(tracks[+e.target.dataset.index])}});
     document.getElementById('modalClose').onclick=closeVideo;modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});document.getElementById('trackModalClose').onclick=closeTrack;trackModal.addEventListener('click',e=>{if(e.target===trackModal)closeTrack()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeTrack();closeAction()}});
     const fullSrc='assets/video/algorithms-10s.mp4';
     document.getElementById('fullClipPlay').onclick=()=>openVideo(fullSrc,'АЛГОРИТМЫ DOWN — тизер');document.getElementById('fullClipButton').onclick=()=>openVideo(fullSrc,'АЛГОРИТМЫ DOWN — тизер');
