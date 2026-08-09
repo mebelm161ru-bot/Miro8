@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#061015">
+  <meta name="description" content="Miro-8 — анонимный музыкальный проект. Дебютный альбом «FOMO НА ДИВАНЕ» уже в сети.">
+  <link rel="canonical" href="https://mebelm161ru-bot.github.io/miro8-site/">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mebelm161ru-bot.github.io/miro8-site/">
+  <meta property="og:title" content="Miro-8 — FOMO НА ДИВАНЕ">
+  <meta property="og:description" content="Мрачный цинизм с улыбкой. Тринадцать песен о цифровой тревоге и жизни по ту сторону экрана.">
+  <meta property="og:image" content="https://mebelm161ru-bot.github.io/miro8-site/assets/images/fomo-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Miro-8 — FOMO НА ДИВАНЕ">
+  <meta name="twitter:description" content="Голос без лица. Дебютный альбом уже в сети.">
+  <meta name="twitter:image" content="https://mebelm161ru-bot.github.io/miro8-site/assets/images/fomo-cover.jpg">
+  <title>Miro-8 — официальный сайт</title>
+  <style>
+    :root{
+      --bg:#050b0f;--panel:#0b161c;--panel2:#0f2028;--ink:#edf8fb;--muted:#8fa5ae;
+      --cyan:#34d9eb;--cyan2:#89f5ff;--orange:#ff9f2f;--magenta:#de47f0;--red:#ff4f66;
+      --line:rgba(101,224,238,.18);--shadow:0 28px 90px rgba(0,0,0,.48);--radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;color:var(--ink);background:
+      radial-gradient(circle at 78% 8%,rgba(42,171,201,.13),transparent 30rem),
+      radial-gradient(circle at 10% 42%,rgba(222,71,240,.08),transparent 28rem),var(--bg);
+      font-family:Inter,Segoe UI,Arial,sans-serif;overflow-x:hidden;cursor:default}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.055;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}button{font:inherit}img,video{display:block;max-width:100%}
+    ::selection{background:var(--cyan);color:#001014}
+    .container{width:min(1200px,calc(100% - 40px));margin:auto}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--cyan2);font:700 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:26px;height:2px;background:var(--orange);box-shadow:0 0 18px var(--orange)}
+    .section{position:relative;padding:110px 0}
+    .section-title{font-size:clamp(38px,6vw,82px);line-height:.94;letter-spacing:-.055em;margin:18px 0 24px;max-width:920px}
+    .lead{font-size:clamp(18px,2.2vw,24px);line-height:1.55;color:#c4d5db;max-width:760px}
+    .muted{color:var(--muted)}
+    .accent{color:var(--cyan)}.orange{color:var(--orange)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;border:1px solid transparent;border-radius:999px;font-weight:800;letter-spacing:.01em;transition:.25s ease;cursor:pointer}
+    .btn-primary{color:#021116;background:linear-gradient(120deg,var(--cyan2),var(--cyan));box-shadow:0 0 34px rgba(52,217,235,.25)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(52,217,235,.42)}
+    .btn-ghost{border-color:rgba(150,235,245,.25);background:rgba(10,24,30,.56);backdrop-filter:blur(12px)}
+    .btn-ghost:hover{border-color:var(--cyan);transform:translateY(-3px)}
+    .icon{width:18px;height:18px;fill:currentColor}
+
+    /* Loader */
+    .loader{position:fixed;inset:0;z-index:999;background:#03080b;display:grid;place-items:center;transition:opacity .7s ease,visibility .7s}
+    .loader.done{opacity:0;visibility:hidden}
+    .loader-core{text-align:center}.loader-ring{width:116px;aspect-ratio:1;margin:auto;position:relative;animation:spin 7s linear infinite}
+    .loader-ring i{position:absolute;left:50%;top:50%;width:14px;height:34px;border-radius:10px;background:var(--cyan);box-shadow:0 0 18px var(--cyan);transform-origin:7px 49px}
+    .loader-ring i:nth-child(1){transform:translate(-50%,-49px) rotate(0)}.loader-ring i:nth-child(2){transform:translate(-50%,-49px) rotate(45deg)}
+    .loader-ring i:nth-child(3){transform:translate(-50%,-49px) rotate(90deg)}.loader-ring i:nth-child(4){transform:translate(-50%,-49px) rotate(135deg)}
+    .loader-ring i:nth-child(5){transform:translate(-50%,-49px) rotate(180deg)}.loader-ring i:nth-child(6){transform:translate(-50%,-49px) rotate(225deg)}
+    .loader-ring i:nth-child(7){transform:translate(-50%,-49px) rotate(270deg)}.loader-ring i:nth-child(8){transform:translate(-50%,-49px) rotate(315deg);background:var(--orange);box-shadow:0 0 18px var(--orange)}
+    .loader-word{margin-top:22px;font:700 14px ui-monospace,monospace;letter-spacing:.34em;color:#bceef4}
+    @keyframes spin{to{rotate:1turn}}
+
+    /* Progress and nav */
+    .progress{position:fixed;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--orange),var(--cyan),var(--magenta));z-index:401;box-shadow:0 0 14px var(--cyan)}
+    nav{position:fixed;z-index:400;left:0;right:0;top:0;padding:16px 0;transition:.3s ease}
+    nav.scrolled{background:rgba(4,11,15,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-row{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.06em}
+    .brand img{width:38px;height:38px;object-fit:contain;filter:drop-shadow(0 0 13px rgba(52,217,235,.45))}
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:700;color:#c5d5da}
+    .nav-links a{position:relative}.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:var(--cyan);transition:.25s}.nav-links a:hover::after{right:0}
+    .menu-btn{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:#0b181e;color:white}
+
+    /* Hero */
+    .hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:120px 0 70px;isolation:isolate}
+    #particles{position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:.7}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:44px;align-items:center}
+    .hero h1{font-size:clamp(70px,12vw,160px);line-height:.78;letter-spacing:-.075em;margin:22px 0 28px;position:relative;text-shadow:0 0 60px rgba(52,217,235,.12)}
+    .hero h1 .eight{display:inline-block;color:transparent;-webkit-text-stroke:2px var(--cyan);filter:drop-shadow(0 0 12px rgba(52,217,235,.6));animation:eightPulse 2.8s ease-in-out infinite}
+    @keyframes eightPulse{50%{filter:drop-shadow(0 0 28px rgba(52,217,235,.9));transform:translateY(-3px)}}
+    .hero-copy{font-size:clamp(20px,2.2vw,29px);line-height:1.35;max-width:650px;color:#d5e4e8;margin-bottom:34px}
+    .hero-copy b{color:var(--orange)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-art{position:relative;min-height:650px;display:grid;place-items:center;perspective:1200px}
+    .cover-wrap{position:relative;width:min(520px,88vw);transform-style:preserve-3d;transition:transform .25s ease}
+    .cover-wrap::before{content:"";position:absolute;inset:-10%;background:radial-gradient(circle,rgba(52,217,235,.32),rgba(222,71,240,.12) 35%,transparent 70%);filter:blur(30px);z-index:-1;animation:halo 4s ease-in-out infinite}
+    @keyframes halo{50%{scale:1.1;opacity:.72}}
+    .cover{width:100%;border-radius:28px;box-shadow:var(--shadow),0 0 0 1px rgba(131,237,248,.18);transform:rotateY(-5deg) rotateX(2deg)}
+    .orbit{position:absolute;inset:-38px;border:1px solid rgba(72,217,234,.18);border-radius:50%;animation:spin 24s linear infinite;pointer-events:none}
+    .orbit::before,.orbit::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 24px var(--cyan)}
+    .orbit::before{left:8%;top:20%}.orbit::after{right:4%;bottom:24%;background:var(--orange);box-shadow:0 0 24px var(--orange)}
+    .stamp{position:absolute;right:-12px;top:10%;padding:12px 14px;border:1px solid rgba(255,159,47,.42);border-radius:12px;background:rgba(4,12,16,.8);font:700 11px ui-monospace,monospace;letter-spacing:.13em;color:var(--orange);transform:rotate(4deg)}
+    .scroll-cue{position:absolute;left:50%;bottom:24px;translate:-50% 0;color:#8aa1aa;font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
+    .scroll-cue i{width:1px;height:38px;background:linear-gradient(var(--cyan),transparent);animation:cue 1.5s ease-in-out infinite}@keyframes cue{50%{translate:0 9px;opacity:.4}}
+
+    /* Marquee */
+    .marquee{overflow:hidden;border-block:1px solid var(--line);background:#08151a;rotate:-1deg;scale:1.02}
+    .marquee-track{display:flex;width:max-content;animation:marquee 27s linear infinite;padding:18px 0}
+    .marquee span{font-weight:900;font-size:18px;letter-spacing:.12em;white-space:nowrap;color:#c6e8ed}
+    .marquee b{color:var(--orange);margin:0 25px}@keyframes marquee{to{translate:-50% 0}}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(42px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}
+
+    /* Album */
+    .album-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:72px;align-items:center}
+    .album-cover{position:relative}.album-cover img{border-radius:30px;box-shadow:var(--shadow)}
+    .album-cover::after{content:"03.08.2026";position:absolute;right:-22px;bottom:38px;background:var(--orange);color:#091014;padding:13px 16px;border-radius:12px;font:900 12px ui-monospace,monospace;letter-spacing:.12em;rotate:-4deg}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0}
+    .stat{padding:22px 16px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(15,34,42,.9),rgba(7,19,24,.7));text-align:center}
+    .stat strong{display:block;font-size:clamp(30px,5vw,52px);line-height:1;color:var(--cyan);margin-bottom:8px}.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+
+    /* Wave */
+    .wave-shell{height:88px;display:flex;align-items:center;gap:4px;margin:30px 0;padding:14px 18px;border:1px solid var(--line);border-radius:18px;background:#061116;overflow:hidden}
+    .wave-shell i{display:block;flex:1;min-width:2px;height:22%;border-radius:3px;background:linear-gradient(var(--cyan2),var(--cyan));opacity:.78;animation:wave 1.2s ease-in-out infinite;animation-delay:calc(var(--i)*-.035s)}
+    @keyframes wave{0%,100%{height:16%;opacity:.35}50%{height:calc(20% + var(--h)*1%);opacity:1}}
+
+    /* Tracks */
+    .tracks-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:44px}
+    .track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .track{position:relative;min-height:360px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#0a171d;cursor:pointer;isolation:isolate;transition:transform .3s ease,border .3s ease,box-shadow .3s ease}
+    .track:hover{transform:translateY(-8px);border-color:rgba(74,223,238,.6);box-shadow:0 22px 50px rgba(0,0,0,.38),0 0 34px rgba(52,217,235,.12)}
+    .track img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:scale .5s ease}.track:hover img{scale:1.06}
+    .track::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(3,10,13,.45) 52%,rgba(3,9,12,.98) 92%);z-index:-1}
+    .track-no{position:absolute;top:16px;left:16px;font:900 12px ui-monospace,monospace;letter-spacing:.12em;color:var(--orange)}
+    .play-dot{position:absolute;right:16px;top:16px;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:rgba(3,13,17,.7);border:1px solid rgba(94,231,243,.32);backdrop-filter:blur(8px);transition:.25s}.track:hover .play-dot{background:var(--cyan);color:#001217;transform:scale(1.08)}
+    .track-info{position:absolute;left:18px;right:18px;bottom:18px}.track h3{font-size:19px;line-height:1.05;margin:0 0 10px}.track p{font-size:13px;line-height:1.4;color:#9eb1b8;margin:0}
+    .track.featured{grid-column:span 2}.track.featured h3{font-size:28px}
+
+    /* Diagnostic */
+    .diagnostic{border:1px solid rgba(88,228,240,.24);border-radius:34px;background:linear-gradient(135deg,rgba(12,35,44,.96),rgba(9,19,25,.96));padding:clamp(28px,6vw,74px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .diagnostic::before{content:"";position:absolute;width:440px;height:440px;border-radius:50%;right:-210px;top:-210px;background:radial-gradient(circle,rgba(222,71,240,.22),transparent 65%)}
+    .diag-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;align-items:center}.diag-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+    .diag-btn{border:1px solid var(--line);background:#091a20;color:#d8e8ec;padding:13px 16px;border-radius:999px;cursor:pointer;transition:.2s}.diag-btn:hover,.diag-btn.active{background:var(--cyan);color:#011014;border-color:var(--cyan);transform:translateY(-2px)}
+    .diag-result{min-height:300px;padding:36px;border-radius:26px;background:#061116;border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;justify-content:center;position:relative}
+    .diag-code{font:700 11px ui-monospace,monospace;color:var(--orange);letter-spacing:.15em}.diag-result h3{font-size:clamp(30px,4vw,50px);line-height:1;margin:18px 0}.diag-result p{color:#a9bec5;line-height:1.6;font-size:18px}.diag-pulse{position:absolute;right:25px;top:25px;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(52,217,235,.55);animation:pulse 1.8s infinite}@keyframes pulse{70%{box-shadow:0 0 0 18px transparent}}
+
+    /* Clip and future */
+    .clip-card{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);border-radius:32px;overflow:hidden;background:#09171d;box-shadow:var(--shadow)}
+    .clip-poster{min-height:560px;position:relative;background-size:cover;background-position:center}.clip-poster::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(9,23,29,.94))}
+    .big-play{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:2;width:96px;height:96px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(5,16,21,.58);color:white;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(12px);transition:.3s}.big-play:hover{scale:1.08;background:var(--cyan);color:#001116;box-shadow:0 0 50px rgba(52,217,235,.5)}
+    .clip-copy{padding:clamp(32px,6vw,78px);display:flex;flex-direction:column;justify-content:center}.clip-copy h2{font-size:clamp(38px,5vw,68px);line-height:.94;margin:18px 0 26px}
+    .future-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}.future-cover{position:relative}.future-cover img{border-radius:30px;filter:saturate(.82);box-shadow:var(--shadow)}
+    .future-cover::before{content:"NEXT SIGNAL";position:absolute;z-index:2;left:22px;top:22px;padding:10px 12px;border-radius:9px;background:var(--red);font:900 11px ui-monospace,monospace;letter-spacing:.15em;color:#fff}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.about-card{padding:34px;border:1px solid var(--line);border-radius:24px;background:rgba(10,24,31,.76)}
+    .about-card h3{font-size:25px;margin:0 0 15px}.about-card p{color:#a9bbc2;line-height:1.7;margin:0}.about-card.wide{grid-column:1/-1;background:linear-gradient(120deg,rgba(12,35,43,.96),rgba(29,14,36,.72))}
+    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}.time{padding:22px;border-top:2px solid var(--cyan);background:#09181e;border-radius:0 0 16px 16px}.time small{color:var(--orange);font:800 12px ui-monospace,monospace}.time h4{margin:12px 0 8px;font-size:18px}.time p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+
+    /* Footer */
+    .cta{padding:120px 0;text-align:center}.cta-box{padding:80px 24px;border-radius:36px;border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,rgba(52,217,235,.18),transparent 45%),#08171d;overflow:hidden}.cta h2{font-size:clamp(46px,8vw,110px);line-height:.85;letter-spacing:-.065em;margin:0 auto 30px;max-width:1000px}.cta p{font-size:20px;color:#aac0c7}.cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+    footer{padding:30px 0 45px;border-top:1px solid var(--line);color:#849ba4}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:24px}.footer-links{display:flex;gap:20px;flex-wrap:wrap}.footer-links a:hover{color:var(--cyan)}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;z-index:800;background:rgba(1,6,9,.88);backdrop-filter:blur(18px);display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;transition:.3s}.modal.open{opacity:1;visibility:visible}
+    .modal-card{width:min(920px,100%);max-height:92vh;background:#08161c;border:1px solid rgba(107,232,244,.26);border-radius:24px;padding:18px;box-shadow:var(--shadow);transform:scale(.94);transition:.3s}.modal.open .modal-card{transform:none}
+    .modal-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:4px 3px 14px}.modal-top h3{margin:0;font-size:18px}.close{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#0c2028;color:white;cursor:pointer;font-size:22px}.modal video{width:100%;max-height:76vh;border-radius:16px;background:#02070a}
+
+    .detail-card{display:grid;grid-template-columns:.75fr 1.25fr;gap:24px;align-items:center}.detail-card img{width:100%;border-radius:16px}.detail-copy{padding:12px}.detail-copy h3{font-size:34px;line-height:1;margin:10px 0 16px}.detail-copy p{color:#a9bec5;line-height:1.6}.detail-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .action-card{width:min(620px,100%);padding:28px;background:#08161c;border:1px solid rgba(107,232,244,.26);border-radius:24px;box-shadow:var(--shadow)}.action-card h3{font-size:28px;margin:8px 0 12px}.action-url{padding:13px;border-radius:12px;background:#041015;border:1px solid var(--line);color:#a8dce3;word-break:break-all;font:13px/1.5 ui-monospace,monospace}.toast{position:fixed;left:50%;bottom:28px;translate:-50% 24px;z-index:1000;padding:12px 18px;border-radius:999px;background:var(--cyan);color:#031115;font-weight:800;opacity:0;visibility:hidden;transition:.25s}.toast.show{opacity:1;visibility:visible;translate:-50% 0}
+    @media(max-width:1000px){
+      .hero-grid,.album-layout,.diag-grid,.clip-card,.future-grid{grid-template-columns:1fr}.hero{padding-top:130px}.hero-art{min-height:auto;margin-top:28px}.cover-wrap{width:min(520px,78vw)}.album-layout{gap:40px}.track-grid{grid-template-columns:repeat(2,1fr)}.clip-poster::after{background:linear-gradient(transparent,rgba(9,23,29,.95))}.timeline{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.about-card.wide{grid-column:auto}
+    }
+    @media(max-width:760px){
+      .detail-card{grid-template-columns:1fr}.detail-card img{max-height:280px;object-fit:contain}.detail-copy h3{font-size:27px}
+      .container{width:min(100% - 28px,1200px)}.section{padding:82px 0}.nav-links{position:fixed;left:14px;right:14px;top:76px;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:16px;background:rgba(5,15,20,.96);border:1px solid var(--line);border-radius:20px;transform:translateY(-20px);opacity:0;visibility:hidden;transition:.25s}.nav-links.open{transform:none;opacity:1;visibility:visible}.nav-links a{padding:15px}.menu-btn{display:block}.hero h1{font-size:clamp(68px,25vw,112px)}.hero-copy{font-size:20px}.hero-art{display:none}.scroll-cue{display:none}.stats{grid-template-columns:1fr}.track-grid{grid-template-columns:1fr}.track.featured{grid-column:auto}.track{min-height:430px}.tracks-head{display:block}.diagnostic{padding:25px}.diag-result{padding:25px}.clip-poster{min-height:460px}.section-title{font-size:46px}.footer-row{display:block}.footer-links{margin-top:20px}.marquee span{font-size:15px}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.loader{display:none}}
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true"><div class="loader-core"><div class="loader-ring"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="loader-word">MIRO-8 / SIGNAL</div></div></div>
+  <div class="progress" id="progress"></div>
+
+  <nav id="nav">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="Miro-8 — наверх">
+        <img src="assets/images/logo.png" alt="Miro-8">
+        <span>Miro-8</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#album">Альбом</a><a href="#tracks">Треки</a><a href="#clip">Клип</a><a href="#about">Проект</a><a href="#future">Дальше</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <canvas id="particles"></canvas>
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">анонимный музыкальный проект</div>
+        <h1>Miro<span class="eight">-8</span></h1>
+        <div class="hero-copy">Мрачный цинизм с улыбкой. Песни о том, что экран называет <b>удобством</b>, а человек чувствует как усталость.</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://band.link/ni0i1" target="_blank" rel="noopener">Слушать альбом <span>↗</span></a>
+          <a class="btn btn-ghost" href="#tracks">Выбрать свой сбой</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="cover-wrap" id="coverParallax">
+          <div class="orbit"></div>
+          <img class="cover" src="assets/images/fomo-cover.jpg" alt="Обложка альбома FOMO НА ДИВАНЕ">
+          <div class="stamp">RELEASED / 03.08.2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>прокрутить сигнал</span><i></i></div>
+  </header>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>УВЕДОМЛЕНИЕ — УБИЙЦА <b>✦</b> FOMO НА ДИВАНЕ <b>✦</b> АЛГОРИТМЫ DOWN <b>✦</b> SEND HELP <b>✦</b> НЕ СНИМАЙ ЭТОТ МОМЕНТ <b>✦</b></span>
+    <span>УВЕДОМЛЕНИЕ — УБИЙЦА <b>✦</b> FOMO НА ДИВАНЕ <b>✦</b> АЛГОРИТМЫ DOWN <b>✦</b> SEND HELP <b>✦</b> НЕ СНИМАЙ ЭТОТ МОМЕНТ <b>✦</b></span>
+  </div></div>
+
+  <main>
+    <section class="section" id="album">
+      <div class="container album-layout">
+        <div class="album-cover reveal"><img src="assets/images/fomo-cover.jpg" alt="FOMO НА ДИВАНЕ — Miro-8"></div>
+        <div class="reveal">
+          <div class="eyebrow">дебютный альбом</div>
+          <h2 class="section-title">FOMO<br><span class="accent">НА ДИВАНЕ</span></h2>
+          <p class="lead">Тринадцать коротких историй: уведомление разбивает мысль, лента съедает вечер, виртуальная близость становится одиночеством — и в финале телефон остаётся экраном вниз.</p>
+          <div class="stats">
+            <div class="stat"><strong data-count="13">0</strong><span>треков</span></div>
+            <div class="stat"><strong>31:28</strong><span>полная история</span></div>
+            <div class="stat"><strong data-count="2026">0</strong><span>год релиза</span></div>
+          </div>
+          <div class="wave-shell" id="wave" aria-hidden="true"></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="https://band.link/ni0i1" target="_blank" rel="noopener">Все площадки</a><a class="btn btn-ghost" href="https://vk.ru/artist/4122223775008170793" target="_blank" rel="noopener">VK Артист</a><a class="btn btn-ghost" href="https://open.spotify.com/artist/27loXOE9CcHSJKKcN0C9Wl" target="_blank" rel="noopener">Spotify</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tracks">
+      <div class="container">
+        <div class="tracks-head reveal"><div><div class="eyebrow">13 системных сбоев</div><h2 class="section-title">Нажми.<br><span class="accent">Узнай себя.</span></h2></div><p class="lead">Каждая карточка открывает десятисекундный фрагмент. Лица не нужны: главный герой уже по эту сторону экрана.</p></div>
+        <div class="track-grid" id="trackGrid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container diagnostic reveal">
+        <div class="diag-grid">
+          <div><div class="eyebrow">музыкальный диагноз</div><h2 class="section-title">Какой у тебя<br><span class="orange">сбой сегодня?</span></h2><p class="lead">Не медицина. Просто быстрый способ выбрать трек для этого вечера.</p><div class="diag-buttons" id="diagButtons">
+            <button class="diag-btn active" data-key="notice">Уведомления</button><button class="diag-btn" data-key="fomo">Сравнение</button><button class="diag-btn" data-key="scroll">Скроллинг</button><button class="diag-btn" data-key="delulu">Делюлу</button><button class="diag-btn" data-key="sleep">Бессонница</button>
+          </div></div>
+          <div class="diag-result"><i class="diag-pulse"></i><div class="diag-code" id="diagCode">SIGNAL / 01</div><h3 id="diagTitle">УВЕДОМЛЕНИЕ — УБИЙЦА</h3><p id="diagText">До сигнала была мысль. После — только красный кружок и слабое воспоминание, что мысль была хорошая.</p><button class="btn btn-primary" id="diagPlay">Открыть фрагмент</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="clip">
+      <div class="container clip-card reveal">
+        <div class="clip-poster" style="background-image:url('assets/images/tracks/03.jpg')"><button class="big-play" id="fullClipPlay" aria-label="Смотреть полный клип">▶</button></div>
+        <div class="clip-copy"><div class="eyebrow">видеотизер</div><h2>АЛГОРИТМЫ<br><span class="accent">DOWN</span></h2><p class="lead">Зашёл на минуту. День закончился первым. Короткий фрагмент о плане, который не пережил ленту рекомендаций.</p><p class="muted">00:10 · вертикальный тизер · полный клип публикуется в VK</p><button class="btn btn-ghost" id="fullClipButton">Смотреть тизер</button></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="eyebrow reveal">голос без лица</div><h2 class="section-title reveal">Не биография.<br><span class="accent">Позиция.</span></h2>
+        <div class="about-grid">
+          <article class="about-card reveal"><h3>Почему анонимно?</h3><p>Miro-8 не строит тайну вокруг человека в капюшоне. Отсутствие лица освобождает место для сцены слушателя: его комнаты, его ленты, его неловкого узнавания.</p></article>
+          <article class="about-card reveal"><h3>Как звучит проект?</h3><p>Мрачный цинизм с улыбкой. Одна точная бытовая деталь вместо трёх абстракций. Герой сохраняет достоинство, даже когда мир ведёт себя нелепо.</p></article>
+          <article class="about-card wide reveal"><h3>AI — инструмент. Решение — авторское.</h3><p>В производстве Miro-8 используются AI-инструменты. Тексты, драматургия, отбор версий и финальные решения проходят ручную авторскую редактуру. Синтетический вокал основан на авторизованном голосе создателя проекта. Чужие голоса и несанкционированные клоны не используются.</p></article>
+        </div>
+        <div class="timeline reveal">
+          <div class="time"><small>03.08.2026</small><h4>FOMO НА ДИВАНЕ</h4><p>Дебютный альбом. Тринадцать треков. Уже в сети.</p></div>
+          <div class="time"><small>05.03.2027</small><h4>ПОДВАЛ БУДУЩЕГО</h4><p>Следующий официальный альбом. В производстве.</p></div>
+          <div class="time"><small>ДАЛЬШЕ</small><h4>ЦИКЛ ПРОДОЛЖАЕТСЯ</h4><p>Новые главы выходят не пачкой, а когда текст и звук выдерживают повторное прослушивание.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="future">
+      <div class="container future-grid">
+        <div class="future-cover reveal"><img src="assets/images/podval-cover.jpg" alt="ПОДВАЛ БУДУЩЕГО — Miro-8"></div>
+        <div class="reveal"><div class="eyebrow">следующий сигнал</div><h2 class="section-title">ПОДВАЛ<br><span class="orange">БУДУЩЕГО</span></h2><p class="lead">Будущее пришло без инструкции и осталось ночевать в подвале. Новый альбом готовится к релизу пятого марта 2027 года.</p><div class="hero-actions"><a class="btn btn-primary" href="https://vk.ru/miro8_music" target="_blank" rel="noopener">Следить в VK</a><a class="btn btn-ghost" href="mailto:miro8officiall@gmail.com">Связаться</a></div></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-box reveal"><div class="eyebrow" style="justify-content:center">связь установлена</div><h2>Положи телефон<br><span class="accent">экраном вниз.</span></h2><p>Но сначала сохрани альбом. Мы тоже живём в противоречии.</p><div class="cta-actions"><a class="btn btn-primary" href="https://band.link/ni0i1" target="_blank" rel="noopener">Слушать Miro-8</a><a class="btn btn-ghost" href="https://vk.ru/miro8_music" target="_blank" rel="noopener">Вступить в сообщество</a></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><div><b style="color:#dff8fb">Miro-8</b><br><small>© 2026 · Голос без лица</small></div><div class="footer-links"><a href="https://band.link/ni0i1" target="_blank" rel="noopener">Музыка</a><a href="https://vk.ru/miro8_music" target="_blank" rel="noopener">Сообщество VK</a><a href="https://vk.ru/artist/4122223775008170793" target="_blank" rel="noopener">VK Артист</a><a href="https://open.spotify.com/artist/27loXOE9CcHSJKKcN0C9Wl" target="_blank" rel="noopener">Spotify</a><a href="mailto:miro8officiall@gmail.com">miro8officiall@gmail.com</a></div></div></footer>
+
+  <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><div class="modal-top"><h3 id="modalTitle">Miro-8</h3><button class="close" id="modalClose" aria-label="Закрыть">×</button></div><video id="modalVideo" controls playsinline></video></div></div>
+  <div class="modal" id="trackModal" role="dialog" aria-modal="true" aria-labelledby="trackModalTitle"><div class="modal-card detail-card"><img id="trackModalImg" alt="Обложка трека Miro-8"><div class="detail-copy"><div class="eyebrow">трек Miro-8</div><h3 id="trackModalTitle"></h3><p id="trackModalHook"></p><div class="detail-actions"><a class="btn btn-primary" href="https://band.link/ni0i1" target="_blank" rel="noopener">Слушать</a><a class="btn btn-ghost" href="https://vk.ru/artist/4122223775008170793" target="_blank" rel="noopener">VK Артист</a><a class="btn btn-ghost" href="https://open.spotify.com/artist/27loXOE9CcHSJKKcN0C9Wl" target="_blank" rel="noopener">Spotify</a><button class="btn btn-ghost" id="trackModalClose">Закрыть</button></div></div></div></div>
+  <div class="modal" id="actionModal" role="dialog" aria-modal="true" aria-labelledby="actionTitle"><div class="action-card"><div class="modal-top"><h3 id="actionTitle">Открыть ссылку</h3><button class="close" id="actionClose" aria-label="Закрыть">×</button></div><p class="muted">В защищённом предпросмотре внешние окна могут блокироваться. Ссылка работает после публикации сайта.</p><div class="action-url" id="actionUrl"></div><div class="detail-actions"><a class="btn btn-primary" id="actionGo" target="_blank" rel="noopener">Перейти</a><button class="btn btn-ghost" id="actionCopy">Скопировать</button></div></div></div>
+  <div class="toast" id="toast">Ссылка скопирована</div>
+
+  <script>
+    const tracks=[
+      ['01','УВЕДОМЛЕНИЕ — УБИЙЦА','Дзынь-дзынь! Это убийца!','assets/images/tracks/01.jpg','assets/video/notice-10s.mp4'],
+      ['02','FOMO НА ДИВАНЕ','Я смотрю на экран.','assets/images/tracks/02.jpg','assets/video/fomo-10s.mp4'],
+      ['03','АЛГОРИТМЫ DOWN','Алгоритм проглотил мой план.','assets/images/tracks/03.jpg','assets/video/algorithms-10s.mp4'],
+      ['04','ИДЕАЛЬНЫЙ ДЕНЬ','Идеальный день — это ложь!','assets/images/tracks/04.jpg',null],
+      ['05','СВАЙП ВПРАВО','Любовь напрокат.','assets/images/tracks/05.jpg',null],
+      ['06','ВИРТУАЛЬНЫЙ ДРУГ','Ты где-то в сети.','assets/images/tracks/06.jpg',null],
+      ['07','SEND HELP',"I'm lost in the crowd.",'assets/images/tracks/07.jpg',null],
+      ['08','Я ЖИВУ В ДЕЛЮЛУ','Дешёвый неон тоже корона.','assets/images/tracks/08.jpg','assets/video/delulu-10s.mp4'],
+      ['09','МЕНТАЛЬНЫЙ СБОЙ','Я смеюсь невпопад.','assets/images/tracks/09.jpg',null],
+      ['10','ЦИФРОВОЙ СОН','Синий свет на стене.','assets/images/tracks/10.jpg','assets/video/sleep-10s.mp4'],
+      ['11','ВСЁ БУДЕТ ОКЕЙ — НЕТ','Всё будет окей. Но нет.','assets/images/tracks/11.jpg',null],
+      ['12','КТО Я БЕЗ ИНТЕРНЕТА','После сети остаётся вопрос.','assets/images/tracks/12.jpg',null],
+      ['13','НЕ СНИМАЙ ЭТОТ МОМЕНТ','Файл не создан. Жизнь сохранена.','assets/images/tracks/13.jpg','assets/video/moment-10s.mp4']
+    ];
+    const grid=document.getElementById('trackGrid');
+    tracks.forEach((t,i)=>{const card=document.createElement('article');card.className='track reveal'+(i===1?' featured':'');card.dataset.index=i;card.innerHTML=`<img loading="lazy" src="${t[3]}" alt="${t[1]}"><span class="track-no">MIRO-8 / ${t[0]}</span><span class="play-dot">${t[4]?'▶':'+'}</span><div class="track-info"><h3>${t[1]}</h3><p>${t[2]}</p></div>`;grid.appendChild(card)});
+
+    const modal=document.getElementById('videoModal'),video=document.getElementById('modalVideo'),modalTitle=document.getElementById('modalTitle');
+    function openVideo(src,title){video.src=src;modalTitle.textContent=title;modal.classList.add('open');document.body.style.overflow='hidden';video.play().catch(()=>{})}
+    function closeVideo(){modal.classList.remove('open');document.body.style.overflow='';video.pause();video.removeAttribute('src');video.load()}
+    const trackModal=document.getElementById('trackModal');
+    function openTrack(t){if(t[4]){openVideo(t[4],t[1]);return}document.getElementById('trackModalImg').src=t[3];document.getElementById('trackModalImg').alt='Обложка трека '+t[1];document.getElementById('trackModalTitle').textContent=t[1];document.getElementById('trackModalHook').textContent=t[2]+' Полный трек доступен на BandLink и в VK Музыке.';trackModal.classList.add('open');document.body.style.overflow='hidden'}
+    function closeTrack(){trackModal.classList.remove('open');document.body.style.overflow=''}
+    grid.addEventListener('click',e=>{const card=e.target.closest('.track');if(card)openTrack(tracks[+card.dataset.index])});
+    document.getElementById('modalClose').onclick=closeVideo;modal.addEventListener('click',e=>{if(e.target===modal)closeVideo()});document.getElementById('trackModalClose').onclick=closeTrack;trackModal.addEventListener('click',e=>{if(e.target===trackModal)closeTrack()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVideo();closeTrack();closeAction()}});
+    const fullSrc='assets/video/algorithms-10s.mp4';
+    document.getElementById('fullClipPlay').onclick=()=>openVideo(fullSrc,'АЛГОРИТМЫ DOWN — тизер');document.getElementById('fullClipButton').onclick=()=>openVideo(fullSrc,'АЛГОРИТМЫ DOWN — тизер');
+
+    const diagnostic={
+      notice:['SIGNAL / 01','УВЕДОМЛЕНИЕ — УБИЙЦА','До сигнала была мысль. После — только красный кружок и слабое воспоминание, что мысль была хорошая.',0],
+      fomo:['SIGNAL / 02','FOMO НА ДИВАНЕ','Чужая жизнь выглядит идеальной, пока ваша лежит экраном вниз.',1],
+      scroll:['SIGNAL / 03','АЛГОРИТМЫ DOWN','План был на вечер. Лента решила, что у вечера другой владелец.',2],
+      delulu:['SIGNAL / 08','Я ЖИВУ В ДЕЛЮЛУ','Мечта начала платить аренду и называть себя дворцом.',7],
+      sleep:['SIGNAL / 10','ЦИФРОВОЙ СОН','Тело устало в одиннадцать. Палец закончил смену в два.',9]
+    };
+    let diagIndex=0;const code=document.getElementById('diagCode'),dt=document.getElementById('diagTitle'),dx=document.getElementById('diagText');
+    document.getElementById('diagButtons').addEventListener('click',e=>{if(!e.target.matches('.diag-btn'))return;document.querySelectorAll('.diag-btn').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');const d=diagnostic[e.target.dataset.key];code.textContent=d[0];dt.textContent=d[1];dx.textContent=d[2];diagIndex=d[3]});
+    document.getElementById('diagPlay').onclick=()=>openTrack(tracks[diagIndex]);
+
+    const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    const statObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count,dur=1200,start=performance.now();function tick(now){const p=Math.min(1,(now-start)/dur);el.textContent=Math.floor(end*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);statObserver.unobserve(el)}),{threshold:.8});document.querySelectorAll('[data-count]').forEach(x=>statObserver.observe(x));
+
+    const wave=document.getElementById('wave');for(let i=0;i<64;i++){const b=document.createElement('i');b.style.setProperty('--i',i);b.style.setProperty('--h',Math.floor(8+Math.random()*68));wave.appendChild(b)}
+    const nav=document.getElementById('nav'),progress=document.getElementById('progress');addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>20);progress.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+    const menu=document.getElementById('navLinks');document.getElementById('menuBtn').onclick=()=>menu.classList.toggle('open');menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+
+    const cover=document.getElementById('coverParallax');if(matchMedia('(pointer:fine)').matches){cover.parentElement.addEventListener('mousemove',e=>{const r=cover.parentElement.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cover.style.transform=`rotateY(${x*10}deg) rotateX(${-y*8}deg) translateZ(8px)`});cover.parentElement.addEventListener('mouseleave',()=>cover.style.transform='')}
+
+    const actionModal=document.getElementById('actionModal'),actionUrl=document.getElementById('actionUrl'),actionGo=document.getElementById('actionGo'),toast=document.getElementById('toast');
+    function openAction(url,label){document.getElementById('actionTitle').textContent=label||'Открыть ссылку';actionUrl.textContent=url.replace('mailto:','');actionGo.href=url;actionModal.classList.add('open');document.body.style.overflow='hidden'}
+    function closeAction(){actionModal.classList.remove('open');if(!modal.classList.contains('open')&&!trackModal.classList.contains('open'))document.body.style.overflow=''}
+    document.getElementById('actionClose').onclick=closeAction;actionModal.addEventListener('click',e=>{if(e.target===actionModal)closeAction()});
+    document.getElementById('actionCopy').onclick=async()=>{const text=actionGo.href.replace('mailto:','');try{await navigator.clipboard.writeText(text)}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1500)};
+    const embedded=window.self!==window.top;document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a||a===actionGo)return;const href=a.getAttribute('href')||'';if((embedded&&/^https?:/.test(href))||href.startsWith('mailto:')){e.preventDefault();openAction(a.href,a.textContent.trim())}});
+
+    const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');let pts=[];function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);pts=Array.from({length:Math.min(90,Math.floor(innerWidth/16))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.5+.2,v:Math.random()*.25+.05,a:Math.random()*.5+.1}))}function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);pts.forEach(p=>{p.y-=p.v;if(p.y<0){p.y=innerHeight;p.x=Math.random()*innerWidth}ctx.beginPath();ctx.fillStyle=`rgba(74,220,235,${p.a})`;ctx.arc(p.x,p.y,p.r,0,7);ctx.fill()});requestAnimationFrame(draw)}resize();draw();addEventListener('resize',resize);
+    addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('done'),650));setTimeout(()=>document.getElementById('loader').classList.add('done'),2200);
+  </script>
+</body>
+</html>
